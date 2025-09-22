@@ -1,5 +1,5 @@
 # TrackEx
-A simple MERN (MongoDB, Express, React, Node.js) application to perform CRUD operations for tracking expenses with authentication.
+A simple MERN (MongoDB, Express, React, Node.js) application to perform CRUD operations for tracking expenses with JWT authentication.
 
 
 ## Getting Started
