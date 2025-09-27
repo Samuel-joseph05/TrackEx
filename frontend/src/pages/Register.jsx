@@ -11,15 +11,17 @@ const[name,setName]=useState("")
 const [password, setPassword] = useState("");
 const navigate= useNavigate();
 
-const handleSubmit =(e)=>{
-  e.preventDefault();
-  axios
-  .post(`${API_URL}/register`,{name,email,password})// API_URL is imported from config.js 
-  .then(res=>{
-    console.log(res.data)
+const handleSubmit =async(e)=>{
+  e.preventDefault();// Prevent page reload
+  try {
+    const res = await axios.post(`${API_URL}/register`, { name, email, password },{withCredentials:true});
+    console.log(res.data); // log response
     navigate("/login");
-  })
-   .catch((err) =>console.log(err))
+  }
+  catch (err) {
+      console.error(err);
+      alert("An error occurred during login");
+    }
 }
   return (
     <>
