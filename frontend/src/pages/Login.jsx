@@ -8,59 +8,53 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(`${API_URL}/login`, { email, password })
-      .then((res) => {
-          if(res.data.Login === true)// if login is true then only go to dashboard
-        {
-          navigate("/dashboard");
-        }  
-        else{
-          navigate("/login");
-        }
-      })
-      .catch((err) => console.log(err));
+    try {
+      const res = await axios.post(
+        `${API_URL}/login`,
+        { email, password },
+        { withCredentials: true } // crucial for cookies
+      );
+
+      if (res.data.login === true) {
+        navigate("/"); // redirect to ExpenseForm
+      } else {
+        alert(res.data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred during login");
+    }
   };
 
   return (
-    <div className="flex justify-center  ">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-3  shadow-xl p-5 rounded-3xl w-100 m-15 "
-      >
-        <h1 className="text-2xl p-1">Login</h1>
-        <label htmlFor="email">Email</label>
+    <div className="flex justify-center">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 p-5 shadow-xl rounded-3xl w-96">
+        <h1 className="text-2xl">Login</h1>
+        <label>Email</label>
         <input
           type="email"
-          placeholder="Enter your gmail"
-          className="p-2 bg-gray-100 rounded-2xl outline-none"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        required />
-        <label htmlFor="password">Password</label>
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="p-2 rounded-xl bg-gray-100 outline-none"
+        />
+        <label>Password</label>
         <input
           type="password"
-          placeholder="Enter your password "
-          className="p-2 bg-gray-100 rounded-2xl outline-none"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-      required   />
-        <p className="text-sm">Click Sign In to your Existing account...</p>
-        <button
-          className="text-white bg-purple-600 p-2  rounded-2xl transition duration-300 
-              ease-in-out  hover:bg-purple-700 hover:text-white"
-          type="submit"
-        >
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="p-2 rounded-xl bg-gray-100 outline-none"
+        />
+        <button type="submit" className="bg-purple-600 text-white p-2 rounded-xl hover:bg-purple-700">
           Sign In
         </button>
-        <p className="text-sm">don't have an account? Click Sign Up .</p>
         <button
-          className="bg-gray-300 text-black p-2 rounded-2xl transition duration-300 
-            ease-in-out  hover:bg-sky-400 hover:text-white"
+          type="button"
+          onClick={() => navigate("/register")}
+          className="bg-gray-300 text-black p-2 rounded-xl hover:bg-sky-400"
         >
           Sign Up
         </button>
