@@ -1,4 +1,4 @@
-import { useState ,useEffect} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config.js";
 import axios from "axios";
@@ -6,19 +6,13 @@ import axios from "axios";
 function ExpenseForm() {
   const [title, setTitle] = useState("Movie Night-Avengers");
   const [amount, setAmount] = useState(150);
-  const [category, setCategory] = useState("ood");
+  const [category, setCategory] = useState("Food");
   const [date, setDate] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false); // track login state
+ 
 
   const navigate = useNavigate();
 
-   // Check login state on mount
-  useEffect(() => {
-    const token = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("accessToken="));
-    setLoggedIn(!!token);
-  }, []);
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();// Prevent page reload
@@ -41,59 +35,25 @@ function ExpenseForm() {
 
      
        navigate("/expenselist");
-    } catch (err) {
-      console.error(err);
+    } 
+    catch(err) {
+      console.log(err);
       alert("Failed to add expense!");
     }
   };
     
   
-
-  const handleLogin = () => {
-    navigate("/login");
-  };
-  const handleSignUp = () => {
-    navigate("/register");
-  };
-
-  return (
+return (
     <div className="">
-      <h1 className="text-center text-3xl">TrackEx</h1>
-      <div className="flex  gap-3   rounded-3xl  mx-3 my-3">
-        <h1 className="text-2xl flex justify-center sm:"> ExpenseForm</h1>
-            {/* Conditional buttons */}
-      {!loggedIn && (
-        <div className="flex gap-3 my-3">
-          <button onClick={handleLogin} className="bg-red-600 rounded-sm px-4">
-            Login
-          </button>
-          <button onClick={handleSignUp} className="bg-blue-600 rounded-2xl px-4">
-            Sign Up
-          </button>
-        </div>
-      )}
-      {/* Show logout if logged in */}
-{loggedIn && (
-  <div className="flex gap-3 my-3">
-    <span className="text-green-600 font-semibold">You are logged in</span>
-    <button
-      onClick={() => {
-        document.cookie = "accessToken=; Max-Age=0; path=/;";
-        document.cookie = "refreshToken=; Max-Age=0; path=/;";
-        setLoggedIn(false);
-        navigate("/login");
-      }}
-      className="bg-gray-600 text-white px-3 rounded"
-    >
-      Logout
-    </button>
-  </div>
-)}
-      </div>
+ 
       <form
-        className="flex flex-col gap-3  shadow-xl p-5 rounded-3xl w-100 m-10 "
+        className="flex flex-col gap-3  shadow-xl p-7  rounded-3xl w-65 ml-4 "
         onSubmit={handleSubmit}
       >
+          <div className=" mb-4  ">
+        <h1 className="text-2xl flex justify-center sm:"> ExpenseForm</h1>
+
+      </div>
         <label htmlFor="title">Title : </label>
         <input
           name="title"
@@ -107,7 +67,7 @@ function ExpenseForm() {
         <br></br>
 
         <label htmlFor="amount">Amount : </label>
-        <span className="absolute left-2 top-1/3 mt-13 ml-10 ">₹</span>
+        {/* <span className="absolute left-2 top-1/3 mt-4 ml-10 ">₹</span> */}
         <input
           name="amount"
           value={amount}
@@ -123,9 +83,9 @@ function ExpenseForm() {
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="border p-1 ml-1"
+          className="border p-1 ml-1 hover:cursor-pointer"
         >
-          <option>Food</option>
+          <option className="bg-black text-white hover:bg-black ">Food</option>
           <option>Travel</option>
           <option>Movie</option>
           <option>Gym</option>
@@ -150,11 +110,11 @@ function ExpenseForm() {
 
         <button
           type="submit"
-          className="   bg-blue-500 text-white p-2 ml-2  hover:bg-blue-700   rounded-3xl   "
+          className="   bg-blue-500 text-white p-2 ml-2  hover:bg-blue-700   rounded-3xl  hover:cursor-pointer  "
         >
           Add Expense
         </button>
-        <a href="/expenselist" className="text-blue-600 hover:underline">go to expenselist</a>
+        <a href="/expenselist" className="text-blue-600 hover:underline">Go to expenselist</a>
       </form>
     </div>
   );
