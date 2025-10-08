@@ -5,10 +5,9 @@ A simple MERN (MongoDB, Express, React, Node.js) application to perform CRUD ope
 ## Getting Started
 
 ### 1. Clone the repository
-`git clone https://github.com/Samuel-joseph05/TrackEx.git`
-<br>
+`git clone https://github.com/Samuel-joseph05/TrackEx.git
 
-`cd trackex`
+cd trackex`
 ```bash
 ### 2. Install dependencies
     Backend
