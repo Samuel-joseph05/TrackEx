@@ -4,7 +4,7 @@ A simple **MERN (MongoDB, Express, React, Node.js)** application to perform CRUD
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow the steps below to set up and run TrackEx on your local machine.
 
