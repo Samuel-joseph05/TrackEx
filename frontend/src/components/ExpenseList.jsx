@@ -49,7 +49,7 @@ function ExpenseList() {
     <div className="p-6">
       <h2 className="text-3xl mb-4">Expenses</h2>
           <div className="my-6">
-         <button onClick={handleClick}className="bg-blue-400 text-white px-1 py-1 rounded-sm">Back to Add  Expense</button>
+         <button onClick={handleClick}className="bg-blue-400 text-white px-1 py-1 rounded-sm">Back to Expense</button>
       </div>
              
       {loading && <div>Loading...</div>}
