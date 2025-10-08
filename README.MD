@@ -14,6 +14,7 @@ Follow the steps below to set up and run TrackEx on your local machine.
 
 `git clone https://github.com/Samuel-joseph05/TrackEx.git
 cd TrackEx`
+<br>
 2️⃣ Install Dependencies
 🖥️ Backend Setup
 
@@ -26,6 +27,7 @@ npm install express cors cookie-parser jsonwebtoken mongoose dotenv`
 
 `cd ../frontend
 npm install`
+<br>
 3️⃣ Set Up Environment Variables
 In the backend folder, create a file named .env and add the following variables:
 
@@ -36,7 +38,7 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:3000`
 ⚠️ Make sure to replace the placeholder values with your actual credentials.
-
+<br>
 4️⃣ Run the Application
 Start Backend Server
 
