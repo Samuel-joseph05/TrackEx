@@ -1,14 +1,8 @@
-// import { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-  // const [darkMode, setDarkMode] = useState(false);
-
-  // useEffect(() => {
-  //   if (darkMode) document.documentElement.classList.add("dark");
-  //   else document.documentElement.classList.remove("dark");
-  // }, [darkMode]);
 
   const handleLogin = () => {
     navigate("/login");
@@ -19,7 +13,9 @@ function Home() {
   return (
     <>
       <div className=" p-6 ">
-        <h1 className="text-4xl sm:text-5xl text-center font-serif my-10">TrackEx</h1>
+        <h1 className="text-4xl sm:text-5xl text-center font-serif my-10">
+          TrackEx
+        </h1>
         <div className="flex justify-center gap-6 my-10 ">
           <button
             className="bg-blue-500 text-teal-50 py-2 px-4 rounded-2xl
@@ -41,11 +37,11 @@ function Home() {
             Welcome to TrackEx !
           </h1>
           <p className="mt-5 ml-5 mr-5 text-black ">
-            <span className="font-bold text-xl">TrackEx</span> – Your Personal Expense
-            Tracker TrackEx is a simple, intuitive web application that helps
-            you manage your personal finances. With TrackEx, you can register
-            and log in securely, add your expenses with details like title,
-            amount, category, and date, and view a complete list of your
+            <span className="font-bold text-xl">TrackEx</span> – Your Personal
+            Expense Tracker TrackEx is a simple, intuitive web application that
+            helps you manage your personal finances. With TrackEx, you can
+            register and log in securely, add your expenses with details like
+            title, amount, category, and date, and view a complete list of your
             spending. The app allows you to delete expenses, ensuring your
             records stay accurate and up-to-date. Designed with a clean
             interface, conditional authentication UI, and real-time error
