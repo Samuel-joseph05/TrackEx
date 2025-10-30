@@ -32,7 +32,7 @@ function Login() {
     window.history.back();
   }
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 ml-10  mr-10  mt-10 p-10 shadow-xl rounded-3xl w-96">
         <h1 className="text-2xl">Login</h1>
         <label>Email</label>
