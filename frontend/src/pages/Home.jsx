@@ -11,65 +11,114 @@ function Home() {
   };
   return (
     <>
-      <div className=" p-6 bg-gradient-to-b from-[#73bf73] to-white">
-        <h1 className="text-4xl sm:text-5xl text-center font-serif my-10 ">
-          TrackEx
-        </h1>
-        <div className="flex justify-center gap-6 my-10 ">
-          <button
-            className="bg-blue-500 text-teal-50 py-2 px-4 rounded-2xl
-         transition duration-300 ease-in hover:bg-blue-700"
-            onClick={handleLogin}
-          >
-            LogIn
-          </button>{" "}
-          <p className="text-5xl">🤷‍♂️</p>
-          <button
-            className="bg-green-400 text-black py-2 px-4 rounded-2xl transition duration-300 ease-in hover:bg-green-600 hover:text-white"
-            onClick={handleSignup}
-          >
-            SignUp
-          </button>
-        </div>
-        <div>
-          <h1 className="sm:text-3xl text-2xl text-center font-bold">
-            Welcome to TrackEx !
-          </h1>
-          <p className="mt-5 ml-5 mr-5 mb-10 lg:text-center  text-black ">
-            <span className="font-bold text-xl sm:hidden lg:hidden">
-              TrackEx
-            </span>
-            <ul>
-              <li className="mb-1 lg:mb-5 mt-2 text-2xl">
-                –✅ Simple & Intuitive: Manage your personal finances
-                effortlessly with an easy-to-use interface.
-              </li>{" "}
-              <li className="mb-1 lg:mb-5 text-2xl">
-                🔒 Secure Access: Register and log in safely with built-in
-                authentication.
-              </li>
-              <li className="mb-1 lg:mb-5 text-2xl">
-                🧾 Add Expenses Easily: Record your spending with details like
-                title, amount, category, and date.
-              </li>{" "}
-              <li className="mb-1 lg:mb-5 text-2xl">
-                {" "}
-                📋 View All Your Spending: Get a complete overview of your
-                expenses in one organized list.
-              </li>
-              <li className="mb-1 lg:mb-5 text-2xl">
-                {" "}
-                🗑️ Stay Accurate: Delete old or incorrect expenses anytime to
-                keep your records clean.
-              </li>{" "}
-              <li className="mb-1 text-2xl">
-                📈 Take Control: Understand your spending habits and make better
-                financial decisions.
-              </li>
-            </ul>
-          </p>
-        </div>
+     <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50">
+
+  {/* Hero Section */}
+  <section className="max-w-6xl mx-auto px-6 py-16">
+
+    <h1 className="text-5xl md:text-6xl font-bold text-center text-green-700">
+      TrackEx
+    </h1>
+
+    <p className="text-center text-gray-600 text-lg mt-5 max-w-2xl mx-auto">
+      Manage your income and expenses with a simple, secure, and modern
+      expense tracking application.
+    </p>
+
+    <div className="flex justify-center gap-5 mt-10">
+      <button
+        onClick={handleLogin}
+        className="px-8 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition"
+      >
+        Login
+      </button>
+
+      <button
+        onClick={handleSignup}
+        className="px-8 py-3 rounded-xl bg-green-600 text-white font-semibold shadow-lg hover:bg-green-700 transition"
+      >
+        Sign Up
+      </button>
+    </div>
+
+  </section>
+
+  {/* Features */}
+
+  <section className="max-w-6xl mx-auto px-6 pb-20">
+
+    <h2 className="text-4xl font-bold text-center mb-12">
+      Why Choose TrackEx?
+    </h2>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div className="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition">
+        <div className="text-4xl mb-4">✅</div>
+        <h3 className="text-xl font-bold mb-3">
+          Simple Interface
+        </h3>
+        <p className="text-gray-600">
+          Easily manage your personal finances with a clean and intuitive
+          dashboard.
+        </p>
       </div>
+
+      <div className="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition">
+        <div className="text-4xl mb-4">🔒</div>
+        <h3 className="text-xl font-bold mb-3">
+          Secure Login
+        </h3>
+        <p className="text-gray-600">
+          Your account is protected using secure authentication.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition">
+        <div className="text-4xl mb-4">🧾</div>
+        <h3 className="text-xl font-bold mb-3">
+          Add Expenses
+        </h3>
+        <p className="text-gray-600">
+          Record expenses with title, amount, category and date in seconds.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition">
+        <div className="text-4xl mb-4">📋</div>
+        <h3 className="text-xl font-bold mb-3">
+          Expense History
+        </h3>
+        <p className="text-gray-600">
+          View all your spending in one organized place.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition">
+        <div className="text-4xl mb-4">🗑️</div>
+        <h3 className="text-xl font-bold mb-3">
+          Delete Anytime
+        </h3>
+        <p className="text-gray-600">
+          Remove outdated or incorrect expenses with one click.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition">
+        <div className="text-4xl mb-4">📈</div>
+        <h3 className="text-xl font-bold mb-3">
+          Smart Insights
+        </h3>
+        <p className="text-gray-600">
+          Understand your spending habits and make better financial decisions.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
     </>
   );
 }

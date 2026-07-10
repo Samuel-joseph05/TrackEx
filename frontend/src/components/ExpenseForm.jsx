@@ -44,79 +44,117 @@ function ExpenseForm() {
     
   
 return (
-    <div className="">
- 
-      <form
-        className="flex flex-col gap-3  shadow-xl p-7  rounded-3xl w-65 ml-4 "
-        onSubmit={handleSubmit}
-      >
-          <div className=" mb-4  ">
-        <h1 className="text-2xl flex justify-center sm:"> ExpenseForm</h1>
+    <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50 flex items-center justify-center px-4">
 
-      </div>
-        <label htmlFor="title">Title : </label>
-        <input
-          name="title"
-          value={title}
-          required
-          className=" border-b-2 focus:outline-hidden    "
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <br></br>
+  <form
+    onSubmit={handleSubmit}
+    className="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8"
+  >
+    {/* Header */}
 
-        <label htmlFor="amount">Amount : </label>
-        {/* <span className="absolute left-2 top-1/3 mt-4 ml-10 ">₹</span> */}
-        <input
-          name="amount"
-          value={amount}
-          type="number"
-          required
-          className="border-b-2 focus:outline-hidden  "
-          onChange={(e) => {
-            setAmount(e.target.value);
-          }}
-        />
-        <br></br>
-        <label htmlFor="amount">Category : </label>
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="border p-1 ml-1 hover:cursor-pointer"
-        >
-          <option className="bg-black text-white hover:bg-black ">Food</option>
-          <option>Travel</option>
-          <option>Movie</option>
-          <option>Gym</option>
-          <option>Shopping</option>
-          <option>Bills</option>
-          <option>Other</option>
-        </select>
-        <br></br>
+    <div className="text-center mb-8">
+      <h1 className="text-4xl font-bold text-green-700">
+        Add Expense
+      </h1>
 
-        <label htmlFor="date">Date :</label>
-        <input
-          name="date"
-          value={date}
-          type="date"
-          required
-          className="focus:outline-hidden  "
-          onChange={(e) => {
-            setDate(e.target.value);
-          }}
-        />
-        <br></br>
-
-        <button
-          type="submit"
-          className="   bg-blue-500 text-white p-2 ml-2  hover:bg-blue-700   rounded-3xl  hover:cursor-pointer  "
-        >
-          Add Expense
-        </button>
-        <a href="/expenselist" className="text-blue-600 hover:underline">Go to expenselist</a>
-      </form>
+      <p className="text-gray-500 mt-2">
+        Record your daily expenses and stay on top of your finances.
+      </p>
     </div>
+
+    {/* Title */}
+
+    <div className="mb-5">
+      <label className="block mb-2 font-medium text-gray-700">
+        Title
+      </label>
+
+      <input
+        type="text"
+        value={title}
+        required
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="e.g. Grocery Shopping"
+        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-green-500 transition"
+      />
+    </div>
+
+    {/* Amount */}
+
+    <div className="mb-5">
+      <label className="block mb-2 font-medium text-gray-700">
+        Amount (₹)
+      </label>
+
+      <input
+        type="number"
+        value={amount}
+        required
+        onChange={(e) => setAmount(e.target.value)}
+        placeholder="Enter amount"
+        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-green-500 transition"
+      />
+    </div>
+
+    {/* Category */}
+
+    <div className="mb-5">
+      <label className="block mb-2 font-medium text-gray-700">
+        Category
+      </label>
+
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-green-500 transition"
+      >
+        <option>Food</option>
+        <option>Travel</option>
+        <option>Movie</option>
+        <option>Gym</option>
+        <option>Shopping</option>
+        <option>Bills</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    {/* Date */}
+
+    <div className="mb-8">
+      <label className="block mb-2 font-medium text-gray-700">
+        Date
+      </label>
+
+      <input
+        type="date"
+        value={date}
+        required
+        onChange={(e) => setDate(e.target.value)}
+        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-green-500 transition"
+      />
+    </div>
+
+    {/* Buttons */}
+
+    <button
+      type="submit"
+      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl shadow-lg transition"
+    >
+      + Add Expense
+    </button>
+
+    <div className="text-center mt-6">
+      <a
+        href="/expenselist"
+        className="text-green-700 hover:underline font-medium"
+      >
+        View Expense List →
+      </a>
+    </div>
+
+  </form>
+
+</div>
   );
 }
 

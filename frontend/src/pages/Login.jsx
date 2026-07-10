@@ -32,43 +32,101 @@ function Login() {
     window.history.back();
   }
   return (
-    <div className="flex justify-center ">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 ml-10  mr-10  mt-10 p-10 shadow-xl rounded-3xl w-96">
-        <h1 className="text-2xl">Login</h1>
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="p-2 rounded-xl bg-gray-100 outline-none"
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="p-2 rounded-xl bg-gray-100 outline-none"
-        />
-        <button type="submit" className="bg-purple-600 text-white p-2 rounded-xl hover:bg-purple-700  hover:cursor-pointer">
-          Sign In
-        </button>
-        <button
-          type="button"
-          onClick={() => navigate("/register")}
-          className="bg-gray-300 text-black p-2 rounded-xl hover:bg-sky-400  hover:cursor-pointer"
-        >
-          Sign Up
-        </button>
-        <div className="mt-3">
-          <a className="text-black hover:underline hover:cursor-pointer" onClick={handleback}>back</a>
-       
-        </div>
-      
-      </form>
-      
+   <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50 flex items-center justify-center px-4">
+
+  <form
+    onSubmit={handleSubmit}
+    className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8"
+  >
+
+    {/* Header */}
+
+    <div className="text-center mb-8">
+      <h1 className="text-4xl font-bold text-green-700">
+        Welcome Back
+      </h1>
+
+      <p className="text-gray-500 mt-2">
+        Sign in to continue managing your expenses.
+      </p>
     </div>
+
+    {/* Email */}
+
+    <div className="mb-5">
+      <label className="block mb-2 font-medium text-gray-700">
+        Email
+      </label>
+
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        placeholder="Enter your email"
+        className="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500 transition"
+      />
+    </div>
+
+    {/* Password */}
+
+    <div className="mb-6">
+      <label className="block mb-2 font-medium text-gray-700">
+        Password
+      </label>
+
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        placeholder="Enter your password"
+        className="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500 transition"
+      />
+    </div>
+
+    {/* Login Button */}
+
+    <button
+      type="submit"
+      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl shadow-lg transition"
+    >
+      Sign In
+    </button>
+
+    {/* Divider */}
+
+    <div className="flex items-center my-6">
+      <div className="flex-1 border-t"></div>
+      <span className="px-3 text-gray-400 text-sm">OR</span>
+      <div className="flex-1 border-t"></div>
+    </div>
+
+    {/* Signup */}
+
+    <button
+      type="button"
+      onClick={() => navigate("/register")}
+      className="w-full border border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-3 rounded-xl transition"
+    >
+      Create New Account
+    </button>
+
+    {/* Back */}
+
+    <div className="text-center mt-6">
+      <button
+        type="button"
+        onClick={handleback}
+        className="text-gray-500 hover:text-green-700 hover:underline"
+      >
+        ← Back to Home
+      </button>
+    </div>
+
+  </form>
+
+</div>
   );
 }
 
