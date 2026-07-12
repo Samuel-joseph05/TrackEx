@@ -16,7 +16,7 @@ const handleSubmit =async(e)=>{
   try {
     const res = await axios.post(`${API_URL}/register`, { name, email, password },{withCredentials:true});
     console.log(res.data); // log response
-    navigate("/expenseform"); // Navigate to the expenses form page after successful registration
+    navigate("/login"); // Navigate to the expenses form page after successful registration
   }
   catch (err) {
       console.error(err);
