@@ -17,7 +17,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173"], // your frontend URL
+    origin: ["http://localhost:5173", "https://walletra.vercel.app/"], // your frontend URL
+    
     credentials: true,
   })
 );
@@ -34,6 +35,9 @@ mongoose
 // Routes without auth
 // ------------------------
 
+app.get("/",(req,res)=>{
+  res.send("Welcome to TrackEx API");
+})
 // Register
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
