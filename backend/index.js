@@ -81,12 +81,12 @@ app.post("/login", async (req, res) => {
     });
 
     // Set cookies
-    res.cookie("accessToken", accessToken, { maxAge: 60000, httpOnly: true });
+    res.cookie("accessToken", accessToken, { maxAge: 60000, httpOnly: true ,secure:true,sameSite:"none"});
     res.cookie("refreshToken", refreshToken, {
       maxAge: 300000,
       httpOnly: true,
-      secure: false, // set true in production with HTTPS
-      sameSite: "strict",
+      secure: true, // set true in production with HTTPS
+      sameSite: "none",
     });
 
     res.json({ login: true });
@@ -133,7 +133,7 @@ const renewToken = async (req, res) => {
     const accessToken = jwt.sign({ email: decoded.email }, "jwt-access-token-SecretKey", {
       expiresIn: "1m",
     });
-    res.cookie("accessToken", accessToken, { maxAge: 60000, httpOnly: true });
+    res.cookie("accessToken", accessToken, { maxAge: 60000, httpOnly: true ,secure:true,sameSite:"none"});
     return true;
   } catch (err) {
     res.status(401).json({ valid: false, message: "Invalid refresh token" });
