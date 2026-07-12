@@ -44,9 +44,9 @@ app.post("/register", async (req, res) => {
   try {
     await User.create({ name, email, password });
     res.status(201).json({ message: "Successfully registered" });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  } catch (error) {
+  console.log(error.response.data);
+}
 });
 
 // Login
