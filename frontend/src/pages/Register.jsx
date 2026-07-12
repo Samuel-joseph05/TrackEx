@@ -16,11 +16,11 @@ const handleSubmit =async(e)=>{
   try {
     const res = await axios.post(`${API_URL}/register`, { name, email, password },{withCredentials:true});
     console.log(res.data); // log response
-    navigate("/login");
+    navigate("/expenseform"); // Navigate to the expenses form page after successful registration
   }
   catch (err) {
       console.error(err);
-      alert("An error occurred during login");
+      alert("An error occurred during registration. Please try again.");
     }
 }
  const handleLogin = () => {
