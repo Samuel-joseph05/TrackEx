@@ -74,10 +74,10 @@ app.post("/login", async (req, res) => {
 
     // JWT tokens
     const accessToken = jwt.sign({ email }, "jwt-access-token-SecretKey", {
-      expiresIn: "1m",
+      expiresIn: "15m",
     });
     const refreshToken = jwt.sign({ email }, "jwt-refresh-token-SecretKey", {
-      expiresIn: "5m",
+      expiresIn: "7d",
     });
 
     // Set cookies
