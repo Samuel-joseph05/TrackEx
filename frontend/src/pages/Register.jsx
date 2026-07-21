@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config.js";
+import { toast } from "sonner";
 
 function Register() 
 
@@ -15,6 +16,7 @@ const handleSubmit =async(e)=>{
   e.preventDefault();// Prevent page reload
   try {
     const res = await axios.post(`${API_URL}/register`, { name, email, password },{withCredentials:true});
+    toast.success("Registration successfully! Please log in.");
     console.log(res.data); // log response
     navigate("/login"); // Navigate to the expenses form page after successful registration
   }
@@ -26,6 +28,7 @@ const handleSubmit =async(e)=>{
  const handleLogin = () => {
     navigate("/login");
   };
+  
   return (
     <>
        <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50 flex items-center justify-center px-5">
